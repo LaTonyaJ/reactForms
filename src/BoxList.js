@@ -9,12 +9,13 @@ function BoxList(){
     }
 
     const remove = (id) => {
-        setBox(box => box.filter(box => box.id !== id));
+        console.log(id)
+        setBox(box => box.filter(b => b.id !== id));
     }
     return(
         <div>
         <BoxForm addBox={addBox}/>
-        {box.map(({id, color, height, width, remove}) => 
+        {box.map(({id, color, height, width}) => 
         <Box 
         id={id}
         key={id} 
