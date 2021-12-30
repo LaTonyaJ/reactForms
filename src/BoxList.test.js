@@ -13,10 +13,10 @@ it('matches snapshot', function() {
     expect(asFragment()).toMatchSnapshot;
 });
 
-it("can add a new item", function() {
+it("can add a new box", function() {
     const { getByLabelText, queryByText } = render(<BoxList />);
   
-    // no items yet
+    // no boxes yet
     expect(queryByText("X")).not.toBeInTheDocument();
   
     const colorInput = getByLabelText("Background Color:");
@@ -30,6 +30,6 @@ it("can add a new item", function() {
     fireEvent.change(widthInput, { target: { value: '100' }});
     fireEvent.click(submitBtn);
   
-    // item exists!
+    // box exists!
     expect(queryByText("X")).toBeInTheDocument();
   });
