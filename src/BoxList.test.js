@@ -33,3 +33,28 @@ it("can add a new box", function() {
     // box exists!
     expect(queryByText("X")).toBeInTheDocument();
   });
+
+  //removes a box
+it("can remove a box", function() {
+    const { getByLabelText, queryByText, getByText } = render(<BoxList />);
+  
+    // no boxes yet
+    expect(queryByText("X")).not.toBeInTheDocument();
+  
+    const colorInput = getByLabelText("Background Color:");
+    const heightInput = getByLabelText("Height:");
+    const widthInput = getByLabelText("Width:");
+    const submitBtn = queryByText("Add a Box")
+  
+    // fill out the form
+    fireEvent.change(colorInput, { target: { value: "blue" }});
+    fireEvent.change(heightInput, { target: { value: '100' }});
+    fireEvent.change(widthInput, { target: { value: '100' }});
+    fireEvent.click(submitBtn);
+  
+    const removeButton = getByText("X");
+  
+    // click the remove button and the box should be gone
+    fireEvent.click(removeButton);
+    expect(removeButton).not.toBeInTheDocument();
+  });

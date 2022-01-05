@@ -1,6 +1,8 @@
 import React from "react";
 
-const Box = ({id, color, height, width, remove}) => {
+const Box = ({id, color, height, width, handleRemove}) => {
+    const remove = () => handleRemove(id);
+
     return(
     <div>
         <div

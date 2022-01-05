@@ -9,7 +9,6 @@ function BoxList(){
     }
 
     const remove = (id) => {
-        console.log(id)
         setBox(box => box.filter(b => b.id !== id));
     }
     return(
@@ -22,7 +21,7 @@ function BoxList(){
         color={color} 
         height={height} 
         width={width} 
-        remove={remove}
+        handleRemove={remove}
         />)}
         </div>
     );
